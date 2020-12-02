@@ -114,7 +114,7 @@ def get_text_messages(message):
             file.close()
         except:
             bot.send_message(message.from_user.id, "Произошла ошибка!")
-            break
+            pass
         driver.quit()
 
 
