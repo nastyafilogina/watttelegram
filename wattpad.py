@@ -146,10 +146,19 @@ def get_text_messages(message):
     elif message.text[0:24]=='https://www.wattpad.com/' or message.text[0:23]=='http://www.wattpad.com/' or message.text[0:16]=='www.wattpad.com/' or message.text[0:12]=='wattpad.com/': 
         input1=message.text
         bot.send_message(message.from_user.id, "Подождите несколько минут!")
-        
-        chromedriver = "C:\programs\chromedriver.exe"
 
-        driver = webdriver.Chrome(chromedriver)
+        GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+        CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.binary_location = GOOGLE_CHROME_PATH
+
+        driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+
+        #chromedriver = "C:\programs\chromedriver.exe"
+        #driver = webdriver.Chrome(chromedriver)
 
         #while input1[0:24]!='https://www.wattpad.com/' and input1[0:23]!='http://www.wattpad.com/' and input1[0:16]!='www.wattpad.com/' and input1[0:12]!='wattpad.com/':
         #   input1 = input("Введена некорректная ссылка! Скопируйте в окне браузера и вставьте в текстовое поле бота.")
