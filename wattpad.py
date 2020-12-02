@@ -76,6 +76,9 @@ def get_text_messages(message):
                 not_formatted = "# "+ k.text + " {epub:type=prologue}"
                 formatted = not_formatted.replace('\n', '\n\n')
                 titles.append(formatted)
+
+                bot.send_message(message.from_user.id, formatted)
+                bot.send_message(message.from_user.id, "Новая глава есть!")
             for m in ch2:
                 not_formatted = m.text
                 formatted = not_formatted.replace('\n', '\n\n')
