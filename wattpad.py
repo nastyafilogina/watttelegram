@@ -62,7 +62,9 @@ def get_text_messages(message):
             titles.append("# "+ i.text + " {epub:type=prologue}")
         for i in ch1:
             chapters.append(i.text)
+            bot.send_message(message.from_user.id, i.text)
 
+        bot.send_message(message.from_user.id, "Первая глава есть!")
 
         while driver.find_elements_by_xpath('//a[@class="on-navigate next-part-link"]')[0].get_attribute('textContent') and driver.find_elements_by_xpath('//a[@class="on-navigate next-part-link"]')[0].get_attribute('textContent').strip():
             next_ch = driver.find_elements_by_xpath('//a[@class="on-navigate next-part-link"]')
@@ -84,6 +86,7 @@ def get_text_messages(message):
             except IndexError:
                 break
 
+        bot.send_message(message.from_user.id, "Уже в конце!")
 
         full = []
         i = 0
