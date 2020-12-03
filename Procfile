@@ -1,1 +1,1 @@
-app: python wattpad.py
+web: python wattpad.py
