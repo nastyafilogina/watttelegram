@@ -37,7 +37,10 @@ def get_text_messages(message):
         input1 = message.text
         bot.send_message(message.from_user.id, "Подождите некоторое время! Скачивание больших работ занимает от 10 минут.")
 
-        driver = webdriver.PhantomJS()
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+
+        driver = webdriver.Chrome('chromedriver', chrome_options=chrome_options)
 
         driver.get(input1)
         try:
@@ -125,6 +128,9 @@ def get_text_messages(message):
                         ftt = ftt + '\n\n' + formatted
 
                     chapters.append(ftt)
+                    
+                    bot.send_message(message.from_user.id, ftt)
+                    bot.send_message(message.from_user.id, "Новая глава есть!")
                     try:
                         driver.find_elements_by_xpath('//a[@class="on-navigate next-part-link"]')[0]
                     except IndexError:
