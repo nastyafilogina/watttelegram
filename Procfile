@@ -1,1 +1,1 @@
-web: python wattpad.py
+worker: python wattpad.py
