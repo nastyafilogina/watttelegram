@@ -1,1 +1,1 @@
-web: python wattpad.py $PORT
+worker: python wattpad.py 
