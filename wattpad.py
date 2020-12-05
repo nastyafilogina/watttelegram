@@ -25,7 +25,7 @@ from flask import Flask, request
 
 server = Flask(__name__)
 
-bot = telebot.TeleBot('1450326509:AAEaq_unPJX3BKSTx0QSjZGJMGzmg4oMEDc')
+#bot = telebot.TeleBot('1450326509:AAEaq_unPJX3BKSTx0QSjZGJMGzmg4oMEDc')
 
 @bot.message_handler(content_types=['text']) 
 def get_text_messages(message): 
